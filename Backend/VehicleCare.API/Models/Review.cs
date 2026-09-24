@@ -1,0 +1,15 @@
+using System.ComponentModel.DataAnnotations;
+namespace VehicleCare.API.Models;
+public class Review {
+    [Key] public int Id { get; set; }
+    public int Rating { get; set; } // 1-5
+    public string? Comment { get; set; }
+    public string? ImageUrl { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+    public int AppointmentId { get; set; }
+    public Appointment Appointment { get; set; } = null!;
+
+    public int UserId { get; set; }
+    public User User { get; set; } = null!;
+}
